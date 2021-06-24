@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31423.177
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTelemetry.WebApi1", "OpenTelemetry.WebApi1\OpenTelemetry.WebApi1.csproj", "{D7657546-50E7-424E-BD07-4AD9B8092236}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTelemetry.WebApi2", "OpenTelemetry.WebApi2\OpenTelemetry.WebApi2.csproj", "{804DEDFA-6AA9-4E3D-B2D5-0C205FA5D5B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AFE04861-11EC-417C-BDB9-4EF995A40551}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{49A81F9E-9802-4A6F-904C-E8EAAE009FD0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7657546-50E7-424E-BD07-4AD9B8092236}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7657546-50E7-424E-BD07-4AD9B8092236}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7657546-50E7-424E-BD07-4AD9B8092236}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7657546-50E7-424E-BD07-4AD9B8092236}.Release|Any CPU.Build.0 = Release|Any CPU
+		{804DEDFA-6AA9-4E3D-B2D5-0C205FA5D5B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{804DEDFA-6AA9-4E3D-B2D5-0C205FA5D5B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{804DEDFA-6AA9-4E3D-B2D5-0C205FA5D5B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{804DEDFA-6AA9-4E3D-B2D5-0C205FA5D5B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49A81F9E-9802-4A6F-904C-E8EAAE009FD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49A81F9E-9802-4A6F-904C-E8EAAE009FD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49A81F9E-9802-4A6F-904C-E8EAAE009FD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49A81F9E-9802-4A6F-904C-E8EAAE009FD0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {45ABC549-D734-4C6A-9008-3BD90E8C534C}
+	EndGlobalSection
+EndGlobal

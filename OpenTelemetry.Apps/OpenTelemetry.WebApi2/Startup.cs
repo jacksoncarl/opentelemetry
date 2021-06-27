@@ -7,6 +7,10 @@ using Microsoft.OpenApi.Models;
 using System;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
+using Microsoft.Extensions.Caching.StackExchangeRedis;
+using Microsoft.Extensions.Caching.Distributed;
+using StackExchange.Redis;
+using OpenTelemetry.WebApi2.Extensions;
 
 namespace OpenTelemetry.WebApi2
 {
@@ -28,10 +32,19 @@ namespace OpenTelemetry.WebApi2
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "OpenTelemetry.WebApi2", Version = "v1" });
             });
+            services.AddStackExchangeRedisCache(options =>
+            {
+                var connString =
+                    $"{Configuration["Redis:Host"]}:{Configuration["Redis:Port"]}";
+
+                options.Configuration = connString;
+            });
             services.AddOpenTelemetryTracing((sp, builder) =>
             {
+                RedisCache cache = (RedisCache)sp.GetRequiredService<IDistributedCache>();
                 builder.AddAspNetCoreInstrumentation()
                     .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("WebApi2"))
+                    .AddRedisInstrumentation(cache.GetConnection())
                     .AddJaegerExporter(opts =>
                     {
                         opts.AgentHost = Configuration["Jaeger:AgentHost"];

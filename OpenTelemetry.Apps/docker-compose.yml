@@ -1,8 +1,8 @@
 version: '3.4'
 
 networks:
-  tracing:
-    name: tracing-network
+  ot-network:
+    name: ot-network
     
 services:
   jaeger:
@@ -18,7 +18,14 @@ services:
       - 14268:14268
       - 16686:16686
     networks:
-      - tracing
+      - ot-network
+
+  redis:
+    image: redis:6.2.1
+    ports:
+    - 6379:6379
+    networks:
+      - ot-network
 
   api1:
     build:
@@ -27,7 +34,7 @@ services:
     ports:
       - "5000:80"
     networks:
-      - tracing
+      - ot-network
     depends_on: 
       - jaeger
     environment:
@@ -42,9 +49,12 @@ services:
     ports:
       - "5001:80"
     networks:
-      - tracing
+      - ot-network
     depends_on: 
       - jaeger
+      - redis
     environment:
       Jaeger__AgentHost: jaeger
       Jaeger__AgentPort: 6831
+      Redis__Host: redis
+      Redis__Port: 6379

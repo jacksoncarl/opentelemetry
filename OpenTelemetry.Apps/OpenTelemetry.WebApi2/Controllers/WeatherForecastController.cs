@@ -32,6 +32,8 @@ namespace OpenTelemetry.WebApi2.Controllers
         [HttpGet]
         public async Task<IEnumerable<WeatherForecast>> GetAsync()
         {
+            Activity.Current?.SetTag("http.method", "GET");
+
             _logger.LogInformation($"Logging current activity: {JsonSerializer.Serialize(Activity.Current)}");
 
             IEnumerable<WeatherForecast> weatherForecast = null;
